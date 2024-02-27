@@ -6,6 +6,10 @@ const Products = async () => {
 
   // console.log(productsData);
 
+  // for (var i = 0; i < 10000; i++) {
+  //   console.log(i);
+  // }
+
   return (
     <div>
       <ProductsTable productsData={productsData} />

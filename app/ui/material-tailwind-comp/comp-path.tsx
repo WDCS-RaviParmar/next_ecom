@@ -20,6 +20,8 @@ import {
   IconButton,
   Tooltip,
   Checkbox,
+  Select,
+  Option
 } from "@material-tailwind/react";
 
 export {
@@ -43,4 +45,6 @@ export {
   IconButton,
   Tooltip,
   Checkbox,
+  Select,
+  Option
 };

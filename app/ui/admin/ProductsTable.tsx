@@ -14,16 +14,7 @@ import {
 import { EyeIcon } from "@heroicons/react/16/solid";
 import UpdateProduct from "./UpdateProductBtn";
 import DeleteProduct from "./DeleteProductBtn";
-
-interface ProductSchema {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: { rate: number; count: number };
-}
+import { ProductSchema } from "@/app/lib/definitions";
 
 const ProductsTable = ({
   productsData,
