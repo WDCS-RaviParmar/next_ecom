@@ -11,7 +11,7 @@ const ProductCategories = async ({productData}: ProductProps) => {
 
   return (
     <select
-      name="productCategories"
+      name="category"
       defaultValue={productData?.category}
       className="bg-transparent border border-gray-400 text-gray-600 text-md rounded-md focus-visible:border-1 py-2 w-full "
     >

@@ -1,4 +1,6 @@
+import { Suspense } from "react";
 import Sidebar from "../ui/Sidebar";
+import Loading from "../ui/Loading";
 
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -7,7 +9,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
         <Sidebar />
       </div>
       <div className="flex-grow md:overflow-y-auto md:px-10 md:pt-5 bg-blue-gray-50 w-full">
-        {children}
+          {children}
       </div>
     </div>
   );

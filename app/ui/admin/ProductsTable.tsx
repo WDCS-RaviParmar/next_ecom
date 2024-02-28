@@ -1,55 +1,20 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import {
-  Card,
-  CardHeader,
-  Input,
-  Typography,
-  Button,
-  CardBody,
-  CardFooter,
-  IconButton,
-  Tooltip,
-} from "@/app/ui/material-tailwind-comp/comp-path";
+import {Card,CardHeader,Input,Typography,Button,CardBody,CardFooter,IconButton,Tooltip} from "@/app/ui/material-tailwind-comp/comp-path";
 import { EyeIcon } from "@heroicons/react/16/solid";
 import UpdateProduct from "./UpdateProductBtn";
 import DeleteProduct from "./DeleteProductBtn";
-import { ProductSchema } from "@/app/lib/definitions";
+import { ApiProductSchema } from "@/app/lib/definitions";
+import Image from "next/image";
 
 const ProductsTable = ({
   productsData,
 }: {
-  productsData: Array<ProductSchema>;
+  productsData: Array<ApiProductSchema>;
 }) => {
+  
   const TABLE_HEAD = ["Image", "Title", "Category", "Price", "Options"];
 
-  const TABLE_ROWS = [
-    {
-      title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-      price: 109.95,
-      description:
-        "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-      category: "men's clothing",
-      image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-    },
-    {
-      title: "Mens Casual Premium Slim Fit T-Shirts ",
-      price: 22.3,
-      description:
-        "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
-      category: "men's clothing",
-      image:
-        "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
-    },
-    {
-      title: "Mens Cotton Jacket",
-      price: 55.99,
-      description:
-        "great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.",
-      category: "men's clothing",
-      image: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
-    },
-  ];
   return (
     <Card placeholder="" className="p-5 w-full">
       <CardHeader
@@ -101,7 +66,7 @@ const ProductsTable = ({
           <tbody className="">
             {productsData.map(
               ({ id, title, price, description, category, image }, index) => {
-                const isLast = index === TABLE_ROWS.length - 1;
+                const isLast = index === productsData.length - 1;
                 const classes = isLast
                   ? "p-2"
                   : "p-2 border-b border-blue-gray-50";
@@ -111,11 +76,7 @@ const ProductsTable = ({
                     {/* Product Image */}
                     <td className={classes}>
                       <div className="flex flex-col">
-                        <img
-                          className="w-12 h-12 rounded-md"
-                          src={image}
-                          alt={title}
-                        />
+                        <Image alt="product image" src={image} width={50} height={50} className="rounded-md"/>
                       </div>
                     </td>
                     {/* Product Title */}

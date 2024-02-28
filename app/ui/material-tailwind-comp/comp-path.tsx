@@ -21,7 +21,7 @@ import {
   Tooltip,
   Checkbox,
   Select,
-  Option
+  Option,
 } from "@material-tailwind/react";
 
 export {

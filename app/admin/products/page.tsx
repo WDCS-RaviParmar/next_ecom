@@ -4,11 +4,9 @@ const Products = async () => {
   let productsData = await fetch("https://fakestoreapi.com/products");
   productsData = await productsData.json();
 
-  // console.log(productsData);
-
-  // for (var i = 0; i < 10000; i++) {
-  //   console.log(i);
-  // }
+  for (var i = 0; i < 50000; i++) {
+    console.log(i);
+  }
 
   return (
     <div>

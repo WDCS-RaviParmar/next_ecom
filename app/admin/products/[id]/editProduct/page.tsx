@@ -9,7 +9,7 @@ const editProduct = async ({ params }: { params: { id: number } }) => {
   let productData: ApiProductSchema = await response.json();
 
   return (
-    <UpdateProductForm productData={productData}>
+    <UpdateProductForm productData={productData} productId={params.id}>
       <ProductCategories productData={productData}/>
     </UpdateProductForm>
   );

@@ -2,24 +2,21 @@ import OrderCard from "@/app/ui/admin/DashboardCards/OrderCard";
 import ProductCard from "@/app/ui/admin/DashboardCards/ProductCard";
 import UserCard from "@/app/ui/admin/DashboardCards/UserCard";
 import { Suspense } from "react";
-import Skalton from "./Skalton";
 
-const Dashboard = () => {
+const Abc = () => {
   return (
-    <>
-      <div className="flex gap-4">
-        <Suspense fallback={<Skalton/>}>
+    <div>
+        <Suspense fallback="User commminnnggg">
           <UserCard />
         </Suspense>
-        <Suspense fallback={<Skalton/>}>
+        <Suspense fallback="hsfhjsfjhsfd">
           <ProductCard />
         </Suspense>
-        <Suspense fallback={<Skalton/>}>
+        <Suspense fallback="hsfhjsfjhsfd">
           <OrderCard />
         </Suspense>
-      </div>
-    </>
-  );
-};
+    </div>
+  )
+}
 
-export default Dashboard;
+export default Abc

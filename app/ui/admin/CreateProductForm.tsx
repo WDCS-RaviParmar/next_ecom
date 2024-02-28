@@ -2,11 +2,10 @@
 import { Toaster } from 'react-hot-toast';
 import { Card, Input, Button, Typography } from "@/app/ui/material-tailwind-comp/comp-path";
 import { createProductAct } from "@/app/lib/ServerSction";
-import { useFormState } from "react-dom";
+import { useFormState, useFormStatus } from "react-dom";
 import { CreateProductErrorSchema } from "@/app/lib/definitions";
-import CreateProductBtn from "./CreateProductBtn";
 import { useRouter } from "next/navigation";
-import { errorTost, successTost } from '../react-hot-toast/react-hot-toast';
+import { successTost } from '../react-hot-toast/react-hot-toast';
 
 const CreateProductForm = ({children}: {children: any}) => {
   const router = useRouter()
@@ -27,9 +26,9 @@ const CreateProductForm = ({children}: {children: any}) => {
     }, 1500);
   }
 
-  if(formState.message){
-    errorTost(''+formState.message)
-  }
+  // if(formState.message){
+  //   errorTost(''+formState.message)
+  // }
 
   return (
     <>
@@ -43,14 +42,14 @@ const CreateProductForm = ({children}: {children: any}) => {
             <div className="">
               <div className="my-5">
                 <Input
-                  name="productName"
+                  name="title"
                   crossOrigin={undefined}
                   label="Product Name"
                   defaultValue={""}
                   size="md"
                 />
                 {!formState?.success &&
-                  formState?.error?.productName?.map((msg: string) => (
+                  formState?.error?.title?.map((msg: string) => (
                     <Typography
                       placeholder=""
                       variant="small"
@@ -63,7 +62,7 @@ const CreateProductForm = ({children}: {children: any}) => {
               </div>
               <div className="my-5">
                 <Input
-                  name="productPrice"
+                  name="price"
                   crossOrigin={undefined}
                   label="Product Price"
                   size="md"
@@ -71,7 +70,7 @@ const CreateProductForm = ({children}: {children: any}) => {
                   type="number"
                 />
                 {!formState.success &&
-                  formState?.error?.productPrice?.map((msg: string) => (
+                  formState?.error?.price?.map((msg: string) => (
                     <Typography
                       placeholder=""
                       variant="small"
@@ -84,14 +83,14 @@ const CreateProductForm = ({children}: {children: any}) => {
               </div>
               <div className="my-5">
                 <Input
-                  name="productDescription"
+                  name="description"
                   crossOrigin={undefined}
                   label="Product Description"
                   size="md"
                   defaultValue={""}
                 />
                 {!formState.success &&
-                  formState?.error?.productDescription?.map((msg: string) => (
+                  formState?.error?.description?.map((msg: string) => (
                     <Typography
                       placeholder=""
                       variant="small"
@@ -103,10 +102,10 @@ const CreateProductForm = ({children}: {children: any}) => {
                   ))}
               </div>
               <div className="my-5">
-                {/* Product Categoies List     */}
+                {/* Product Categoies List*/}
                 {children}
                 {!formState.success &&
-                  formState?.error?.productCategories?.map((msg: string) => (
+                  formState?.error?.category?.map((msg: string) => (
                     <Typography
                       placeholder=""
                       variant="small"
@@ -119,7 +118,7 @@ const CreateProductForm = ({children}: {children: any}) => {
               </div>
               <div className="my-5">
                 <Input
-                  name="productImage"
+                  name="image"
                   crossOrigin={undefined}
                   label="Choose Product Image"
                   size="md"
@@ -127,7 +126,7 @@ const CreateProductForm = ({children}: {children: any}) => {
                   defaultValue={""}
                 />
                 {!formState.success &&
-                  formState?.error?.productImage?.map((msg: string) => (
+                  formState?.error?.image?.map((msg: string) => (
                     <Typography
                       placeholder=""
                       variant="small"
@@ -148,10 +147,19 @@ const CreateProductForm = ({children}: {children: any}) => {
               </Typography>
             </div>
           </div>
-          <CreateProductBtn btnName="Update Product" lodingBtnName="Updating Product"/>
+          <CreateProductBtn/>
         </form>
       </Card>
     </>
+  );
+};
+
+const CreateProductBtn = () => {
+  const {pending} = useFormStatus()
+  return (
+    <Button type="submit" loading={pending} placeholder="" className="mt-6" fullWidth>
+      {pending? "Create Product" : "Creating Product"}
+    </Button>
   );
 };
 
