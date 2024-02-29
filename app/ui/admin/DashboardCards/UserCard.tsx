@@ -12,9 +12,6 @@ const UserCard = async () => {
   try {
     user = await fetch("https://fakestoreapi.com/users")
     user = await user.json()
-    //  for(var i = 0; i < 300000; i++){
-    //     console.log(i);
-    // }
   } catch (error: any) {
     console.log(`ERROR: ${error.message}`);
   }

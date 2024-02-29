@@ -6,7 +6,6 @@ export default function Home() {
       <h1>
         <Link href="/admin/dashboard">Go to admin</Link>
       </h1>
-      {/* <Sidebar/> */}
     </>
   );
 }

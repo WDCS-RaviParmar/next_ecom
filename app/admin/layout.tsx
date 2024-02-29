@@ -1,6 +1,5 @@
-import { Suspense } from "react";
 import Sidebar from "../ui/Sidebar";
-import Loading from "../ui/Loading";
+import "../globals.css";
 
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (

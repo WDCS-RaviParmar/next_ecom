@@ -22,6 +22,8 @@ import {
   Checkbox,
   Select,
   Option,
+  Navbar,
+  MobileNav,
 } from "@material-tailwind/react";
 
 export {
@@ -46,5 +48,7 @@ export {
   Tooltip,
   Checkbox,
   Select,
-  Option
+  Option,
+  Navbar,
+  MobileNav,
 };
